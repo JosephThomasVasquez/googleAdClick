@@ -42,6 +42,31 @@
         <div class="text-center">
             <button type="button" class="btn btn-primary p-3 shadow fs-2 rounded-pill px-4 the-button" id="the-button">The Button</button>
         </div>
+
+        <div class="container my-5">
+            <div class="d-flex justify-content-center">
+                <form id="form-submit">
+                    <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text   " name="name" class="form-control" id="name" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Email Address" required>
+                    </div>
+
+                    <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" name="phone" class="form-control" id="phone" placeholder="xxx-xxx-xxxx" required>
+                    </div>
+
+                    
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+
     </main>
 
     <script
@@ -49,5 +74,7 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./app.js"></script>
   </body>
 </html>
