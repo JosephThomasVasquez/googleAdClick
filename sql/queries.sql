@@ -150,12 +150,12 @@ GROUP BY author, c.country_name;
 
 -- 3. List authors(id, first_name, last_name, country_name) with books.
 -- Order by the number of books descending.
-SELECT a.id, firstname, lastname, c.country_name, b.title
+SELECT a.id, firstname, lastname, c.country_name, b.author_id, count(*)
 FROM author as a, country as c, book as b
 where a.id = b.author_id
 and a.country_id = c.id
-GROUP BY a.id, firstname, lastname, c.country_name, b.title
-order by b.title DESC;
+GROUP BY a.id, firstname, lastname, c.country_name, b.author_id
+order by count DESC;
 
 -- 4. Select how many books are from USA authors.
 select c.country_name, count(*)
