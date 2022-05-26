@@ -2,7 +2,11 @@
 
 ## [SQL Task](https://drive.google.com/drive/u/0/folders/1eEac7X-JRnl9k9W9nv8LNkKyBOGBR8Tu)
 
-## I am most familiar with PostgreSQL so the syntax follows that more closer than MySQL or SQL.
+I am most familiar with PostgreSQL so the syntax follows that more closer than MySQL or SQL. Althoguh, I have to say database engineering is not my best skill since I usually spend more time on the visual and application layers.
+
+I had thought I should setup a test database on elephantSQL and ran all these scripts in dBeaver so I have actual data to work with modeling this database structure.
+
+## First I setup the tables using the schema and ERD from the SQL tasks PDF and photo and added some mock data into the columns.
 
 ### Create Tables
 - Create `country` table
@@ -129,7 +133,8 @@ values
 
 <hr/>
 
-## Tasks - Implement queries
+## Tasks - 6 Implement queries
+
 
 1. List authors(id, first_name, last_name, country_name), book name, ISBN, price, discount, is_hard_copy if they have books, or null if they don't.
     - Order by author last_name, first_name.
@@ -142,6 +147,8 @@ and c.id = a.country_id
 group by a.id, a.firstname, a.lastname, c.country_name, b.title, b.isbn, bd.price, bd.discount, bd.is_hard_copy
 ORDER BY a.lastname, a.firstname;
 ```
+Unable to display NULL for author with no books. If I had mroe time to spend on it I would probably find the better solution.
+
 2. List authors (id, first_name, last_name, country_name) where country code is the USA.
 ```
 SELECT author, c.country_name
@@ -154,12 +161,12 @@ GROUP BY author, c.country_name;
 3. List authors(id, first_name, last_name, country_name) with books.
     - Order by the number of books descending.
 ```
-SELECT a.id, firstname, lastname, c.country_name, b.title
+SELECT a.id, firstname, lastname, c.country_name, b.author_id, count(*)
 FROM author as a, country as c, book as b
 where a.id = b.author_id
 and a.country_id = c.id
-GROUP BY a.id, firstname, lastname, c.country_name, b.title
-order by b.title DESC;
+GROUP BY a.id, firstname, lastname, c.country_name, b.author_id
+order by count DESC;
 ```
 
 4. Select how many books are from USA authors.
@@ -196,3 +203,4 @@ and b.id = bd.book_id
 )
 group by firstname, lastname, price;
 ```
+I got stuck on this one as I was able to get the cheapest book but out of all books and not the cheapest book of each author.
