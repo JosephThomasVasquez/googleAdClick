@@ -147,7 +147,7 @@ and c.id = a.country_id
 group by a.id, a.firstname, a.lastname, c.country_name, b.title, b.isbn, bd.price, bd.discount, bd.is_hard_copy
 ORDER BY a.lastname, a.firstname;
 ```
-Unable to display NULL for author with no books. If I had mroe time to spend on it I would probably find the better solution.
+Unable to display NULL for author with no books. If I had more time to spend on it I would probably find the better solution.
 
 2. List authors (id, first_name, last_name, country_name) where country code is the USA.
 ```
